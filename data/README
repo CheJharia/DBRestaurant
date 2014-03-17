@@ -1,0 +1,11 @@
+These 4 sql scripts contain the material to build the database for the Restaurant & Consumer case study.
+
+Data source: http://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data
+
+0. restaurantDDL.sql:
+	create all the tables needed for our restaurant database
+1. restaurantDML.sql:
+	populate all the tables
+2. createRestaurant.sql:
+	run restaurantDDL.sql and restaurantDML.sql consecutively.
+
