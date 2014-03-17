@@ -76,4 +76,5 @@ set underline "-"
 set verify ON
 set wrap ON
 set xmloptimizationcheck OFF
-select * from customer;
+-- create Restaurant database
+-- start createRestaurant.sql;
