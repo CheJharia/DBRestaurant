@@ -1,6 +1,6 @@
 -- print results to logfile
 SPOOL logfile
-start dataDefinition.sql;
-start dataManipulation.sql;
+start restaurantDDL.sql;
+start restaurantDML.sql;
 -- turn of spool
 SPOOL OFF
