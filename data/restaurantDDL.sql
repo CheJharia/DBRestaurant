@@ -4,118 +4,65 @@
 --    restaurantDDL.sql;
 --
 -- DESCRIPTION
---   This script contains the DDLfor the restaurant database (c.f README)
---    14 tables: 
-	 -- t_cuisine cascade constraints;
-	 -- t_serve_alcohol cascade constraints; 
-	 -- t_price_range cascade constraints;
-	 -- t_state cascade constraints;
-	 -- t_restaurant cascade constraints;
-	 -- t_serve_cuisine cascade constraints;
+--   This script contains the DDL for the restaurant database (c.f README)
+--    5 tables: 
+-- t_restaurant
+-- t_serve 
+-- t_customer 
+-- t_rating 
+-- t_customer_cuisine 
 
-	 -- t_smoker cascade constraints;
-	 -- t_drinker cascade constraints;
-	 -- t_marital cascade constraints;
-	 -- t_budget cascade constraints;
-	 -- t_activity cascade constraints;
-	 -- t_customer cascade constraints;
-	 -- t_rating cascade constraints;
-	 -- t_customer_cuisine cascade constraints;
 --  USAGE
 --       SQL> START <filepath>restaurantDDL.sql
 
-drop table t_cuisine cascade constraints;
-drop table t_serve_alcohol cascade constraints; 
-drop table t_price_range cascade constraints;
-drop table t_state cascade constraints;
 drop table t_restaurant cascade constraints;
-drop table t_serve_cuisine cascade constraints;
-
-drop table t_smoker cascade constraints;
-drop table t_drinker cascade constraints;
-drop table t_marital cascade constraints;
-drop table t_budget cascade constraints;
-drop table t_activity cascade constraints;
+drop table t_serve cascade constraints;
 drop table t_customer cascade constraints;
 drop table t_rating cascade constraints;
 drop table t_customer_cuisine cascade constraints;
 
-create table t_cuisine(
-	cuisine_pk number not null primary key,
-	name varchar2(30)
-	);
-create table t_serve_alcohol(
-	serve_alc_pk number not null primary key,
-	description varchar2(20)
-	);
-create table t_price_range(
-	price_range_pk number not null primary key,
-	description varchar2(20)
-	);
-create table t_state(
-	state_pk number not null primary key,
-	name varchar2(20)
-	);
-
 create table t_restaurant(
 	rest_pk number(6,0) not null primary key,
-	name varchar2(60) not null,
+	name varchar2(70) not null,
 	address varchar2(70),
-	zipcode varchar2(30),
-	state_fk number references t_state(state_pk),
-	serve_alc_fk number references t_serve_alcohol(serve_alc_pk),
-	price_range_fk number references t_price_range(price_range_pk) 
+	state varchar2(20),
+	zipcode number(5) check (zipcode between 00001 and 99999),
+	alcohol varchar2(20),
+	smoking varchar2(20),
+	dressCode varchar2(10),
+	priceRange varchar2(10)
 	);
 
-create table t_serve_cuisine(
+create table t_serve(
 	rest_fk references t_restaurant(rest_pk),
-	cuisine_fk references t_cuisine(cuisine_pk),
-	constraint serve_cuisine_pk primary key (rest_fk,cuisine_fk)
-	);
-
-create table t_smoker(
-	smoker_pk number not null primary key,
-	description varchar2(10)
-	);
-create table t_drinker(
-	drinker_pk number not null primary key,
-	description varchar2(20)
-	);
-create table t_marital(
-	marital_pk number not null primary key,
-	description varchar2(10)
-	);
-create table t_budget(
-	budget_pk number not null primary key,
-	description varchar2(10)
-	);
-create table t_activity(
-	activity_pk number not null primary key,
-	description varchar2(20)
+	cuisine varchar2(30)
 	);
 
 create table t_customer(
 	customer_pk number not null primary key,
-	birth_year number(4,0),
-	weight number(3,0),
-	height number(3,2),
-	smoker_fk number references t_smoker(smoker_pk),
-	drinker_fk number references t_drinker(drinker_pk),
-	marital_fk number references t_marital(marital_pk),
-	budget_fk number references t_budget(budget_pk),
-	activity_fk number references t_activity(activity_pk)
+	birth_year number(4,0) check (birth_year > 1900),
+	weight number(3,0) check (weight between 40 and 150),
+	height number(3,2) check (height between 1.2 and 2.20),
+	budget varchar2(10),
+	smoker varchar2(3),
+	drinkLevel varchar2(20),
+	dressCode varchar2(20),
+	ambiance varchar2(10),
+	transport varchar2(15),
+	maritalStatus varchar2(10),
+	activity varchar2(20)
 	);
 
 create table t_rating(
 	customer_fk references t_customer(customer_pk),
 	rest_fk references t_restaurant(rest_pk),
 	constraint rating_pk primary key(customer_fk,rest_fk),
-	food number(1),
-	service number(1)
+	food number(1) check (food in (0, 1, 2)),
+	service number(1) check (service in (0, 1, 2))
 	);
 
 create table t_customer_cuisine(
 	customer_fk references t_customer(customer_pk),
-	cuisine_fk references t_cuisine(cuisine_pk),
-	constraint customer_cuisine_pk primary key (customer_fk, cuisine_fk)
+	cuisine varchar2(30),
+	constraint customer_cuisine_pk primary key (customer_fk, cuisine)
 	);
