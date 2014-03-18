@@ -66,3 +66,4 @@ create table t_customer_cuisine(
 	cuisine varchar2(30),
 	constraint customer_cuisine_pk primary key (customer_fk, cuisine)
 	);
+commit;

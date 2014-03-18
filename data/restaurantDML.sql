@@ -2436,3 +2436,4 @@ insert into t_customer_cuisine VALUES(1135,'Vietnamese');
 insert into t_customer_cuisine VALUES(1136,'Mexican');
 insert into t_customer_cuisine VALUES(1137,'Mexican');
 insert into t_customer_cuisine VALUES(1138,'Pizzeria');
+commit;
