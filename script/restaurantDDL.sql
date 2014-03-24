@@ -44,7 +44,7 @@ create table t_customer(
 	weight number(3,0) check (weight between 40 and 150),
 	height number(3,2) check (height between 1.2 and 2.20),
 	budget varchar2(10),
-	smoker varchar2(3),
+	smoker varchar2(6),
 	drinkLevel varchar2(20),
 	dressCode varchar2(20),
 	ambiance varchar2(10),

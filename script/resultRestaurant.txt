@@ -1,0 +1,58 @@
+> ttitle center 'The best dishes' skip 1 center 'Based on top 10 restaurant servings and top 10 customer dish preferences' sql.pno
+> btitle off
+> select cuisine "Dish" from v_bestDishes
+                                The best dishes                                 
+    Basedtop 10 restaurant servings and top 10 customer dish preferences   1    
+Dish                        
+------------------------------
+American                      
+Chinese                       
+Italian                       
+Mexican                       
+Pizzeria                      
+
+> ttitle center 'The top 10 restaurants' skip 1 center 'Based on number of ratings received by the restaurants' sql.pno
+> column name for a40
+> select name, totalRating "Tot.Rating" from v_top10Restaurants
+                             The top 10 restaurants                             
+             Basednumber of ratings received by the restaurants   1             
+NAME                                     Tot.Rating
+---------------------------------------- ----------
+Tortas Locas Hipocampo                           95
+Puesto De Tacos                                  73
+Cafeteria Y Restaurant El Pacifico               60
+La Cantina Restaurante                           58
+La Posada Del Virrey                             51
+Restaurant La Chalita                            51
+Restaurante Marisco Sam                          51
+Gorditas Doa Gloria                              50
+Restaurante El Cielo Potosino                    49
+Restaurant Oriental Express                      48
+
+ 10 rows selected 
+
+> ttitle center 'The top 10 reviewers' skip 1 center 'Based on number of ratings contributed by the customers' sql.pno
+> btitle right 'Prepared by Ahmad Afiq Che Johari'
+> select topReviewers_pk "Reviewer ID", nbOfratings "Ratings contributed" from v_topReviewers
+                              The top 10 reviewers                              
+            Basednumber of ratings contributed by the customers   1             
+Reviewer ID Ratings contributed
+----------- -------------------
+       1106                  18
+       1061                  18
+
+
+
+
+
+
+
+
+
+
+
+                                                                                
+                                               Prepared by Ahmad Afiq Che Johari
+
+> ttitle off
+> btitle off

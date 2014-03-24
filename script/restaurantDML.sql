@@ -43,7 +43,7 @@ insert into t_restaurant VALUES(132773,'El Cotorreo','Emiliano Zapata Col. Tres 
 insert into t_restaurant VALUES(132825,'Puesto De Tacos','Esquina Santos Degollado Y Leon Guzman','San Luis Potosi','78280','No Alcohol Served','None','Informal','Low');
 insert into t_restaurant VALUES(132830,'Rincon Huasteco','NA','NA','','No Alcohol Served','None','Informal','Low');
 insert into t_restaurant VALUES(132834,'Gorditas Doa Gloria','Sevilla Y Olmedo 715 A','San Luis Potosi','78349','No Alcohol Served','Not Permitted','Casual','Low');
-insert into t_restaurant VALUES(132845,'Cenaduria El Rincã³N De Tlaquepaque','Av. Seminario','San Luis Potosi','','No Alcohol Served','None','Informal','Medium');
+insert into t_restaurant VALUES(132845,'Cenaduria El Rincoon De Tlaquepaque','Av. Seminario','San Luis Potosi','','No Alcohol Served','None','Informal','Medium');
 insert into t_restaurant VALUES(132846,'El Lechon Potosino ','Circuito Oriente Esq. Carretera 57','San Luis Potosi','','No Alcohol Served','Permitted','Casual','Low');
 insert into t_restaurant VALUES(132847,'Don Burguers','R.B. Anaya Esq. Florencia','San Luis Potosi','','No Alcohol Served','None','Informal','Low');
 insert into t_restaurant VALUES(132851,'Kfc','NA','San Luis Potosi','','No Alcohol Served','Not Permitted','Informal','Low');
